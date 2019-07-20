@@ -1,0 +1,228 @@
+﻿<UserControl
+    x:Class="LogikozSystem.LoginSystem.LoginInicial"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    Loaded="Window_Loaded"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    mc:Ignorable="d">
+    <UserControl.Background>
+        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Offset="0" Color="{StaticResource Primary700}" />
+            <GradientStop Offset="1" Color="{StaticResource Primary400}" />
+        </LinearGradientBrush>
+    </UserControl.Background>
+    <materialDesign:Flipper
+        Width="400"
+        Height="430"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <materialDesign:Flipper.FrontContent>
+            <!--<materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3">-->
+            <Grid Background="{DynamicResource MaterialDesignPaper}">
+                <StackPanel Margin="30,20,30,0" Orientation="Vertical">
+                    <TextBlock
+                        x:Name="NomePrograma_txt"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        FontSize="30"
+                        FontStretch="UltraCondensed"
+                        FontStyle="Oblique"
+                        FontWeight="ExtraBlack"
+                        Text="Texto">
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="#FF3162E4" />
+                                <GradientStop Offset="1" Color="#FF3162E4" />
+                                <GradientStop Offset="0.493" Color="#FF6480CD" />
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBlock
+                        x:Name="SobreNomePrograma_txt"
+                        Margin="165,-7,0,0"
+                        FontSize="14"
+                        FontStyle="Italic"
+                        FontWeight="DemiBold"
+                        Foreground="#FFFF9800"
+                        Opacity="0.76"
+                        Text="aqui" />
+
+                    <TextBlock
+                        Margin="0,30,0,0"
+                        HorizontalAlignment="Center"
+                        FontSize="10"
+                        Foreground="Gray"
+                        Text="Faça o Login para Continuar" />
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <ComboBox
+                            x:Name="Usuario_txt"
+                            Width="230"
+                            Margin="0,10,0,0"
+                            materialDesign:HintAssist.Hint="Usuario"
+                            IsEditable="True"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Margin="0,30,0,0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <PasswordBox
+                            x:Name="Senha_txt"
+                            Width="230"
+                            materialDesign:HintAssist.Hint="Senha"
+                            MaxLength="30"
+                            Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Margin="56,20"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                        <ToggleButton x:Name="lembrar_dados_tb" />
+                        <TextBlock Margin="10,0,0,0" Text="Lembrar Usuário" />
+                    </StackPanel>
+
+
+                    <Button
+                        x:Name="logar_bt"
+                        Width="230"
+                        Margin="0,50,0,0"
+                        HorizontalAlignment="Center"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                        Background="{StaticResource PrimaryHueMidBrush}"
+                        BorderBrush="{StaticResource PrimaryHueDarkBrush}"
+                        Click="Logar_bt_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Login" />
+                            <TextBlock Text="Logar" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        HorizontalAlignment="Center"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                        Content="Esqueceu a senha?"
+                        FontSize="9"
+                        Foreground="#FF6A6A6A" />
+                </StackPanel>
+            </Grid>
+            <!--</materialDesign:Card>-->
+        </materialDesign:Flipper.FrontContent>
+
+        <materialDesign:Flipper.BackContent>
+            <!--<materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3">-->
+            <Grid Background="{DynamicResource MaterialDesignPaper}">
+
+                <TextBlock
+                    Margin="0,100,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="15"
+                    Text="Informe seu E-Mail para recuperar o acesso!" />
+
+                <Button
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                    Foreground="{DynamicResource MaterialDesignBody}"
+                    ToolTip="Voltar">
+                    <materialDesign:PackIcon Kind="ArrowBack" />
+                </Button>
+
+                <!--  PegarEmail  -->
+                <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                    <TextBox
+                        x:Name="EmailUsuario_txt"
+                        Width="300"
+                        HorizontalAlignment="Center"
+                        materialDesign:HintAssist.Hint="E-Mail"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        TextChanged="EmailUsuario_txt_TextChanged" />
+                    <Button
+                        x:Name="EnviarEmail_bt"
+                        Width="300"
+                        Margin="0,30,0,0"
+                        Background="{StaticResource SecondaryAccentBrush}"
+                        BorderBrush="{StaticResource SecondaryAccentBrush}"
+                        Click="EnviarEmail_bt_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon VerticalAlignment="Center" Kind="Email" />
+                            <TextBlock Margin="10,0,0,0" Text="Enviar" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <!--  ja tem o codigo  -->
+                <materialDesign:DialogHost>
+                    <materialDesign:DialogHost.DialogContent>
+                        <StackPanel Orientation="Vertical">
+                            <TextBox
+                                x:Name="CodigoDigitado_txt"
+                                Margin="10"
+                                materialDesign:HintAssist.Hint="Código"
+                                KeyDown="CodigoDigitado_txt_KeyDown"
+                                MaxLength="4"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                <Button
+                                    x:Name="ConfirmarCodigo_bt"
+                                    Click="ConfirmarCodigo_bt_Click"
+                                    Command="materialDesign:DialogHost.CloseDialogCommand"
+                                    Content="Confirmar"
+                                    Style="{StaticResource MaterialDesignFlatButton}" />
+
+                                <Button
+                                    Command="materialDesign:DialogHost.CloseDialogCommand"
+                                    Content="Cancelar"
+                                    Style="{StaticResource MaterialDesignFlatButton}" />
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </materialDesign:DialogHost.DialogContent>
+                    <StackPanel Orientation="Vertical">
+                        <Button
+                            x:Name="TenhoOCodigo_bt"
+                            Margin="0,310,0,0"
+                            HorizontalAlignment="Center"
+                            Click="TenhoOCodigo_bt_Click"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                            Style="{StaticResource MaterialDesignFlatButton}">
+                            <Button.ToolTip>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Clique aqui caso ja tenha pego o codigo no email" TextAlignment="Center" />
+                                    <TextBlock Text="Lembre-se que o campo de email deve está preenchido com o mesmo email" TextAlignment="Center" />
+                                </StackPanel>
+                            </Button.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Key" />
+                                <TextBlock Margin="10,0,0,0" Text="Ja tenho o código" />
+                            </StackPanel>
+                        </Button>
+                        <!--<materialDesign:Card Padding="4" UniformCornerRadius="14">
+                                <ProgressBar
+                                    IsIndeterminate="True"
+                                    Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                    Value="50" />
+                            </materialDesign:Card>-->
+                    </StackPanel>
+                </materialDesign:DialogHost>
+            </Grid>
+            <!--</materialDesign:Card>-->
+        </materialDesign:Flipper.BackContent>
+    </materialDesign:Flipper>
+</UserControl>
+

@@ -1,0 +1,119 @@
+﻿<UserControl
+    x:Class="LogikozSystem.Clientes.DeleteCliente"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LogikozSystem.Clientes"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="UserControl_Loaded"
+    mc:Ignorable="d">
+    <Grid
+        x:Name="main_grid"
+        Width="800"
+        Height="500"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top">
+        <Grid Width="600">
+
+            <TextBlock
+                Margin="30"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                FontSize="17"
+                FontWeight="Bold"
+                Text="Remover Cliente Existente" />
+
+            <StackPanel
+                x:Name="procurar_stack"
+                Margin="90"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <TextBox
+                    x:Name="cod_Cliente_txt"
+                    Width="100"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Codigo do Cliente"
+                    KeyDown="Cod_Cliente_txt_KeyDown"
+                    MaxLength="8"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <Button
+                    x:Name="procurar_bt"
+                    Margin="30,0,0,0"
+                    Click="Procurar_bt_Click"
+                    Content="Prucurar" />
+            </StackPanel>
+
+            <StackPanel
+                x:Name="campos_stack"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                Orientation="Vertical">
+                <TextBox
+                    x:Name="Cliente_txt"
+                    Width="300"
+                    materialDesign:HintAssist.Hint="Cliente"
+                    IsReadOnly="True"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox
+                    x:Name="licence_txt"
+                    Width="300"
+                    Margin="0,20,0,0"
+                    materialDesign:HintAssist.Hint="Licença"
+                    IsReadOnly="True"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox
+                        x:Name="days_txt"
+                        Width="90"
+                        HorizontalAlignment="Left"
+                        materialDesign:HintAssist.Hint="Dias/Expiraçao"
+                        IsReadOnly="True"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        x:Name="criacao_txt"
+                        Width="90"
+                        Margin="20,20,0,0"
+                        HorizontalAlignment="Left"
+                        materialDesign:HintAssist.Hint="Criado em"
+                        IsReadOnly="True"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        x:Name="suspenso_txt"
+                        Width="90"
+                        Margin="20,20,0,0"
+                        HorizontalAlignment="Left"
+                        materialDesign:HintAssist.Hint="Suspenso"
+                        IsReadOnly="True"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel
+                x:Name="botoes_stack"
+                Margin="30"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                IsEnabled="False"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="Remover_bt"
+                    Background="#FFF94242"
+                    BorderBrush="DarkRed"
+                    Click="Remover_bt_Click"
+                    Content="REMOVER" />
+                <Button
+                    x:Name="Limpar_bt"
+                    Margin="30,0,0,0"
+                    Background="#FFFFD02E"
+                    BorderBrush="#FFECEC10"
+                    Click="Limpar_bt_Click"
+                    Content="Limpar"
+                    ToolTip="Este botao limpa todos os capos e permite fazer outra busca de outro cliente" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

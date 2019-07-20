@@ -1,0 +1,133 @@
+﻿<Window
+    x:Class="LogikozSystem.TelaPrincipal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:LogikozSystem="clr-namespace:LogikozSystem"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="1000"
+    Height="700"
+    MinWidth="1000"
+    MinHeight="650"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    Icon="pack://siteoforigin:,,,/Resources/logo.png"
+    Loaded="Window_Loaded"
+    ResizeMode="NoResize"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Grid>
+        <!--  Barra top aa  -->
+        <Grid
+            Height="32"
+            VerticalAlignment="Top"
+            Background="#FF3B3C3C">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock
+                    x:Name="TituloTopo_txt"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    FontWeight="DemiBold"
+                    Foreground="Azure"
+                    Text="Nome Aqui" />
+                <Button
+                    x:Name="Sync_bt"
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    Click="Sync_bt_Click"
+                    Content="{materialDesign:PackIcon sync}"
+                    Cursor="Hand"
+                    Foreground="Azure"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    ToolTip="Sincronizar" />
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button
+                    x:Name="MinimizarJanela_bt"
+                    Click="Minimizar_bt_Click"
+                    IsTabStop="False"
+                    Style="{StaticResource MaterialDesignFlatButton}">
+                    <materialDesign:PackIcon Kind="WindowMinimize" />
+                </Button>
+                <Button
+                    x:Name="FecharJanela_bt"
+                    Click="Fechar_bt_Click"
+                    IsTabStop="False"
+                    Style="{StaticResource MaterialDesignFlatButton}">
+                    <materialDesign:PackIcon Kind="Power" />
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!--  Principal  -->
+        <Grid
+            x:Name="GridPrincipal"
+            Margin="0,32,0,0"
+            Visibility="Visible">
+            <LogikozSystem:Home_Default />
+        </Grid>
+
+        <!--  Botao de ajuda  -->
+        <materialDesign:PopupBox
+            Width="40"
+            Height="40"
+            Margin="20"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            PlacementMode="TopAndAlignCentres"
+            Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
+            <materialDesign:PopupBox.ToggleContent>
+                <materialDesign:PackIcon Kind="Help" />
+            </materialDesign:PopupBox.ToggleContent>
+            <materialDesign:PopupBox.ToggleCheckedContent>
+                <materialDesign:PackIcon
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Kind="Close" />
+            </materialDesign:PopupBox.ToggleCheckedContent>
+            <StackPanel Orientation="Vertical">
+                <Button
+                    Width="30"
+                    Height="30"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                    ToolTip="LightBlue"
+                    ToolTipService.Placement="Left" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Margin="10"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                    ToolTip="Yellow"
+                    ToolTipService.Placement="Left" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                    ToolTip="Purple"
+                    ToolTipService.Placement="Left" />
+            </StackPanel>
+
+        </materialDesign:PopupBox>
+
+        <!--  Mesagem  -->
+        <materialDesign:Snackbar
+            x:Name="MensagemSnack_sb"
+            Margin="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            MessageQueue="{materialDesign:MessageQueue}"
+            Opacity="0.7">
+            <materialDesign:SnackbarMessage Content="tete" />
+        </materialDesign:Snackbar>
+    </Grid>
+</Window>

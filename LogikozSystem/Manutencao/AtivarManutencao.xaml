@@ -1,0 +1,110 @@
+﻿<UserControl
+    x:Class="LogikozSystem.Manutencao.AtivarManutencao"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LogikozSystem.Manutencao"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="500"
+    d:DesignWidth="600"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    mc:Ignorable="d">
+    <Grid VerticalAlignment="Top">
+        <Grid>
+            <StackPanel>
+                <TextBlock
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="ExtraBlack"
+                    Text="Ativar Manutençao" />
+                <GroupBox
+                    Margin="0,30,0,0"
+                    HorizontalAlignment="Center"
+                    Header="Informe o código para continuar">
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBox
+                            x:Name="CodCliente_txt"
+                            Width="100"
+                            materialDesign:HintAssist.Hint="Código"
+                            KeyDown="CodCliente_txt_KeyDown"
+                            MaxLength="8"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <Button
+                            x:Name="ProcurarCliente_txt"
+                            Margin="10,0,0,0"
+                            Click="ProcurarCliente_txt_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Search" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </GroupBox>
+
+                <StackPanel
+                    x:Name="Campos_sp"
+                    Margin="0,30,0,0"
+                    HorizontalAlignment="Center"
+                    IsEnabled="False">
+
+                    <TextBox
+                        x:Name="NomeCliente_txt"
+                        Width="150"
+                        materialDesign:HintAssist.Hint="Cliente"
+                        IsReadOnly="True"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        x:Name="mensagemManutenance_txt"
+                        Width="300"
+                        Margin="10"
+                        materialDesign:HintAssist.Hint="Menssagem"
+                        MaxLength="500"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <StackPanel
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <DatePicker
+                            x:Name="DataSelecionada_dp"
+                            Width="200"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Data de previsao do retorno"
+                            Cursor="Hand"
+                            IsTodayHighlighted="True"
+                            SelectedDateFormat="Long"
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        <materialDesign:TimePicker
+                            x:Name="HorarioSelecionado_tp"
+                            Width="100"
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Bottom"
+                            materialDesign:HintAssist.Hint="Hora do Retorno"
+                            Is24Hours="True"
+                            Style="{StaticResource MaterialDesignFloatingHintTimePicker}" />
+                    </StackPanel>
+                </StackPanel>
+
+                <Button
+                    x:Name="Manutençao"
+                    Margin="0,40,0,0"
+                    HorizontalAlignment="Center"
+                    Background="#FFFFD02E"
+                    BorderBrush="#FFECEC10"
+                    Click="Manutençao_Click"
+                    IsEnabled="False">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountClock" />
+                        <TextBlock Margin="10,0,0,0" Text="Manutençao" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

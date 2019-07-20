@@ -1,0 +1,133 @@
+﻿<UserControl
+    x:Class="LogikozSystem.Usuarios.NovoUsuario"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <materialDesign:Card
+            Margin="0,30,0,0"
+            HorizontalAlignment="Center"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <Grid>
+                <TextBlock
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="ExtraBlack"
+                    Foreground="{StaticResource SecondaryAccentForegroundBrush}"
+                    Text="Cadastrar Usúario" />
+                <StackPanel Margin="30,60,30,30">
+                    <!--  Foto, login, nivel  -->
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Border
+                            Width="80"
+                            Height="80"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            CornerRadius="90">
+                            <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4">
+                                <Image
+                                    x:Name="SelecionarImagem_img"
+                                    Cursor="Hand"
+                                    MouseDown="SelecionarImagem_img_MouseDown"
+                                    Source="pack://siteoforigin:,,,/Resources/download.png"
+                                    ToolTip="Procurar imagem" />
+                            </materialDesign:Card>
+                        </Border>
+                        <StackPanel Margin="20,0,0,0" Orientation="Vertical">
+                            <TextBox
+                                x:Name="LoginUsuario_txt"
+                                Width="120"
+                                HorizontalAlignment="Left"
+                                materialDesign:HintAssist.Hint="Login do Usuario"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <ComboBox
+                                    x:Name="NivelAcesso_cb"
+                                    Width="120"
+                                    Margin="0,10,0,0"
+                                    materialDesign:HintAssist.Hint="Nivel de Acesso"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                    <ComboBoxItem Content="Nivel 1" />
+                                    <ComboBoxItem Content="Nivel 2" />
+                                    <ComboBoxItem Content="Nivel 3" />
+                                    <ComboBoxItem Content="Nivel 4" />
+                                </ComboBox>
+                                <materialDesign:PackIcon
+                                    Margin="10,20,0,0"
+                                    VerticalAlignment="Center"
+                                    Foreground="#FF616161"
+                                    Kind="Information">
+                                    <materialDesign:PackIcon.ToolTip>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock HorizontalAlignment="Center" Text="Informaçoes dos niveis" />
+                                            <TextBlock HorizontalAlignment="Center" Text="Nivel 1) Apenas poderá Adicionar/remover suspensao e manutençao de clientes" />
+                                        </StackPanel>
+                                    </materialDesign:PackIcon.ToolTip>
+                                </materialDesign:PackIcon>
+                            </StackPanel>
+                        </StackPanel>
+
+
+                    </StackPanel>
+
+                    <!--  Separando  -->
+                    <TextBlock
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        FontSize="10"
+                        FontWeight="Black"
+                        Foreground="Gray"
+                        Text="Informaçoes" />
+                    <Separator
+                        Background="#FFCDCDCD"
+                        FontFamily="Microsoft Himalaya"
+                        FontSize="10" />
+
+                    <!--  informaçoes  -->
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox
+                                x:Name="NomeUsuario_txt"
+                                Width="140"
+                                HorizontalAlignment="Left"
+                                materialDesign:HintAssist.Hint="Nome"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <ComboBox
+                                x:Name="CargoUsuario_txt"
+                                Width="160"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                materialDesign:HintAssist.Hint="Cargo"
+                                Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                <ComboBoxItem Content="Desenvolvedor Desktop" />
+                                <ComboBoxItem Content="Desenvolvedor Web" />
+                                <ComboBoxItem Content="Design Gráfico" />
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                            <TextBox
+                                x:Name="EmailUsuario_txt"
+                                Width="140"
+                                HorizontalAlignment="Left"
+                                materialDesign:HintAssist.Hint="teste"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox
+                                x:Name="Usuario_txt"
+                                Width="160"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                materialDesign:HintAssist.Hint="teste1"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>
