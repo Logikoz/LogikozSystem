@@ -9,3 +9,4 @@ Projeto de gerenciador de softwares
 ![image](https://user-images.githubusercontent.com/37851168/64129949-f4537c80-cd84-11e9-807c-b412dbd683af.png)
 ![image](https://user-images.githubusercontent.com/37851168/64129958-fc132100-cd84-11e9-881c-6a037e336d53.png)
 ![image](https://user-images.githubusercontent.com/37851168/64129976-08977980-cd85-11e9-929d-e308f72c16dc.png)
+![image](https://user-images.githubusercontent.com/37851168/64130005-2b299280-cd85-11e9-90f0-f633853167d0.png)
